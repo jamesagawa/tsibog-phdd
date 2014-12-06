@@ -24,11 +24,20 @@ class AppDelegate
     )
 
 
+    my_restaurants_tab_controller = UINavigationController.alloc.initWithRootViewController(
+      RestaurantsLoaderController.new
+    )
+    my_restaurants_tab_controller.tabBarItem = UITabBarItem.alloc.initWithTitle(
+      'My Eats',
+      image: rmq.image.resource('star'), tag: 0
+    )
+
 
     tabbar = UITabBarController.alloc.init
     tabbar.viewControllers = [
       main_tab_controller,
-      points_tab_controller
+      points_tab_controller,
+      my_restaurants_tab_controller
     ]
     tabbar.selectedIndex = 0
     tabbar.delegate = self
