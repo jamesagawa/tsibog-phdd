@@ -18,7 +18,7 @@ class MainController < UIViewController
   end
 
   def init_nav
-    self.title = 'Title Here'
+    self.title = 'Tsibog'
   end
 
   def load_suggestion

@@ -3,18 +3,32 @@ class AppDelegate
 
   def application(application, didFinishLaunchingWithOptions:launchOptions)
     @window = UIWindow.alloc.initWithFrame(UIScreen.mainScreen.bounds)
-
-    main_controller = MainController.new
-    @window.rootViewController = UINavigationController.alloc.initWithRootViewController(main_controller)
-
+    @window.rootViewController = build_tabbar
     @window.makeKeyAndVisible
     true
   end
 
-  # Remove this if you are only supporting portrait
-  def application(application, willChangeStatusBarOrientation: new_orientation, duration: duration)
-    # Manually set RMQ's orientation before the device is actually oriented
-    # So that we can do stuff like style views before the rotation begins
-    rmq.device.orientation = new_orientation
+  def build_tabbar
+    main_tab_controller = UINavigationController.alloc.initWithRootViewController(
+      MainController.alloc.initWithNibName(nil, bundle: nil)
+    )
+    main_tab_controller.tabBarItem = UITabBarItem.alloc.initWithTitle(
+      'Home',
+      image: rmq.image.resource('home'), tag: 0
+    )
+
+
+
+
+    tabbar = UITabBarController.alloc.init
+    tabbar.viewControllers = [
+      main_tab_controller
+    ]
+    tabbar.selectedIndex = 0
+    tabbar.delegate = self
+    tabbar
+
   end
+
+
 end
