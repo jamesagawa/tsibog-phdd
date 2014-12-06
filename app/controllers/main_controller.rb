@@ -33,7 +33,7 @@ class MainController < UIViewController
     restaurant = Restaurant.new({
       'name'        => 'Coffee Bean and Tea Leaf',
       'address'     => '47 East Esteban Abad, Katipunan. QC',
-      'coordinates' => [1.000001, -0.0007],
+      'coordinates' => [14.6365727583359, 121.07405930757523],
       'joke'        => 'You should drink here, and taste the leaf out of your coffee.'
     })
 

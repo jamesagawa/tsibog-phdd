@@ -2,6 +2,10 @@
 $:.unshift('/Library/RubyMotion/lib')
 require 'motion/project/template/ios'
 require 'bundler'
+require 'bubble-wrap/location'
+require 'bubble-wrap/http'
+require 'bubble-wrap/core'
+
 Bundler.require
 
 # require 'bubble-wrap'
@@ -48,5 +52,7 @@ Motion::Project::App.setup do |app|
   #   pod 'SVProgressHUD'
   #   pod 'JMImageCache'
   # end
- 
+
+  app.frameworks = ['CoreLocation', 'MapKit']
+
 end
