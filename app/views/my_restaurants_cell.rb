@@ -8,6 +8,7 @@ class MyRestaurantsCell < UICollectionViewCell
     q = rmq(self.contentView)
     # Add your subviews, init stuff here
      @foo = q.append!(UILabel, :foo)
+     @more_info = q.append!(UILabel, :more_info)
   end
 
   def prepareForReuse
@@ -17,6 +18,7 @@ class MyRestaurantsCell < UICollectionViewCell
   def update_restaurant(restaurant)
     @restaurant = restaurant
     @foo.text = restaurant.name
+    @more_info.text = restaurant.address
   end
 
 

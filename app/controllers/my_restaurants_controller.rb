@@ -19,6 +19,9 @@ class MyRestaurantsController < UICollectionViewController
   def viewDidLoad
     super
 
+    self.title = 'My Eats'
+    self.navigationItem.hidesBackButton = true
+
     rmq.stylesheet = MyRestaurantsControllerStylesheet
 
     collectionView.tap do |cv|
@@ -51,6 +54,17 @@ class MyRestaurantsController < UICollectionViewController
   def collectionView(view, didSelectItemAtIndexPath: index_path)
     cell = view.cellForItemAtIndexPath(index_path)
     puts "Selected at section: #{index_path.section}, row: #{index_path.row}"
+    open_restaurant_controller( Restaurant.new(@restaurants[index_path.row]) )
   end
+
+
+  def open_restaurant_controller(restaurant)
+    controller = RestaurantController.new
+    controller.restaurant = restaurant
+    self.navigationController.pushViewController(controller, animated: true)
+  end
+
+
+
 
 end

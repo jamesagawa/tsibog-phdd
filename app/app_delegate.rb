@@ -29,7 +29,7 @@ class AppDelegate
     )
     my_restaurants_tab_controller.tabBarItem = UITabBarItem.alloc.initWithTitle(
       'My Eats',
-      image: rmq.image.resource('star'), tag: 0
+      image: rmq.image.resource('fork-knife'), tag: 0
     )
 
 
