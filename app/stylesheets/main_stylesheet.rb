@@ -9,12 +9,21 @@ class MainStylesheet < ApplicationStylesheet
     st.background_color = color.white
   end
 
-  def hello_world(st)
-    st.frame = {top: 100, width: 200, height: 18, centered: :horizontal}
+  def loading_label(st)
+    st.frame = {top: 210, width: 200, height: 30, centered: :horizontal}
     st.text_alignment = :center
     st.color = color.battleship_gray
+    st.font = font.small
+    st.text = 'Loading...'
+    st.alpha = 0
+  end
+
+  def where_to_button(st)
+    st.frame = {top: 150, width: 300, height: 50, centered: :horizontal}
+    st.color = color.white
+    st.background_color = color.red
     st.font = font.medium
-    st.text = 'Hello World'
+    st.text = 'Where to Eat?'
   end
 
 end
