@@ -24,6 +24,24 @@ class MainController < UIViewController
   def load_suggestion
     puts "button tapped"
     @label_loading.get.alpha = 1
+
+    open_result_controller
+
   end
+
+  def open_result_controller
+    restaurant = Restaurant.new({
+      'name'        => 'Coffee Bean and Tea Leaf',
+      'address'     => '47 East Esteban Abad, Katipunan. QC',
+      'coordinates' => [1.000001, -0.0007],
+      'joke'        => 'You should drink here, and taste the leaf out of your coffee.'
+    })
+
+    controller = ResultController.new
+    controller.restaurant = restaurant
+    self.navigationController.pushViewController(controller, animated: true)
+    @label_loading.get.alpha = 0
+  end
+
 
 end

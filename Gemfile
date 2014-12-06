@@ -23,4 +23,4 @@ gem 'ruby_motion_query'
 #gem 'afmotion' 
 
 # Useful tools 
-#gem 'bubble-wrap' 
+gem 'bubble-wrap'
