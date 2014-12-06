@@ -25,17 +25,23 @@ class MainController < UIViewController
     puts "button tapped"
     @label_loading.get.alpha = 1
 
-    open_result_controller
+    #BubbleWrap::HTTP.get("http://localhost:3000/companies.json") do |response|
+      #result_data = BubbleWrap::JSON.parse(response.body.to_str)
+      #restaurant = Restaurant.new(result_data)
+      #open_result_controller(restaurant)
+    #end
 
-  end
-
-  def open_result_controller
     restaurant = Restaurant.new({
       'name'        => 'Coffee Bean and Tea Leaf',
       'address'     => '47 East Esteban Abad, Katipunan. QC',
       'coordinates' => [14.6365727583359, 121.07405930757523],
       'joke'        => 'You should drink here, and taste the leaf out of your coffee.'
     })
+    open_result_controller(restaurant)
+  end
+
+  def open_result_controller(restaurant)
+
 
     controller = ResultController.new
     controller.restaurant = restaurant
