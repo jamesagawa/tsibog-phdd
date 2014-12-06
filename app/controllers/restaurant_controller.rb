@@ -1,10 +1,10 @@
-class ResultController < UIViewController
+class RestaurantController < UIViewController
   attr_accessor :restaurant
 
   def viewDidLoad
     super
 
-    rmq.stylesheet = ResultStylesheet
+    rmq.stylesheet = RestaurantStylesheet
     init_nav
     rmq(self.view).apply_style :root_view
 
@@ -21,10 +21,8 @@ class ResultController < UIViewController
     @map = showMap
     updateMap
 
-
-    @button = rmq.append(UIButton, :eat_here_button).on(:touch) do |sender|
-      eat_here
-    end
+    @label_rewards = rmq.append(UILabel, :reward_label)
+    @label_rewards.get.text = "** You earned 5 points from this **"
 
   end
 
@@ -57,19 +55,5 @@ class ResultController < UIViewController
     @map.addAnnotation(@annotation)
     @map.alpha = 1
   end
-
-  def eat_here
-    puts "button tapped"
-    open_restaurant_controller
-  end
-
-  def open_restaurant_controller
-    controller = RestaurantController.new
-    controller.restaurant = @restaurant
-    self.navigationController.pushViewController(controller, animated: true)
-  end
-
-
-
 end
 

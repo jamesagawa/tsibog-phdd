@@ -19,7 +19,7 @@ class MainStylesheet < ApplicationStylesheet
   end
 
   def where_to_button(st)
-    st.frame = {top: 150, width: 300, height: 50, centered: :horizontal}
+    st.frame = {top: 170, width: 300, height: 50, centered: :horizontal}
     st.color = color.white
     st.background_color = color.red
     st.font = font.medium

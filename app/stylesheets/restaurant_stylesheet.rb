@@ -1,4 +1,4 @@
-class ResultStylesheet < ApplicationStylesheet
+class RestaurantStylesheet < ApplicationStylesheet
 
   def setup
     # Add sytlesheet specific setup stuff here.
@@ -33,12 +33,12 @@ class ResultStylesheet < ApplicationStylesheet
     st.view.numberOfLines = 3
   end
 
-  def eat_here_button(st)
+  def reward_label(st)
     st.frame = {top: 455, width: 300, height: 50, centered: :horizontal}
-    st.color = color.white
-    st.background_color = color.red
-    st.font = font.medium
-    st.text = 'Eat Here'
+    st.text_alignment = :center
+    st.color = '#CC0000'.to_color
+    st.font = font.system(12)
+    st.view.numberOfLines = 2
   end
 
 

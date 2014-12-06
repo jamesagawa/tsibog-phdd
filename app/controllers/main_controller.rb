@@ -13,12 +13,12 @@ class MainController < UIViewController
     # Create your UIViews here
     @label_loading = rmq.append(UILabel, :loading_label)
     @button = rmq.append(UIButton, :where_to_button).on(:touch) do |sender|
-    load_suggestion
+      load_suggestion
     end
   end
 
   def init_nav
-    self.title = 'Tsibog'
+    self.title = 'Search'
   end
 
   def load_suggestion
